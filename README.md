@@ -11,12 +11,14 @@ For my Yamaha RN-602 the maximum volume setting is 161, for the W-030 it is 60.
 Check the max volume setting by using this url in your homenetwork: http://192.168.1.220/YamahaExtendedControl/v1/system/getFeatures (with your own IP of course)
 Find the value at  "range step", volume, max in the JSON string result.
 
+````json
 "accessories": [
         {
           "accessory": "YamahaMC",
           "name": "Yamaha RN-602",
           "host": "192.168.1.210",
           "zone": "main",
-		  "maxvol":161
+		  "maxvol": 161
         }   
     ]
+````

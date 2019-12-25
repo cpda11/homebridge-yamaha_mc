@@ -25,17 +25,17 @@ Yamaha_mcAccessory.prototype = {
   getServices: function () {
     let informationService = new Service.AccessoryInformation();
     informationService
-      .setCharacteristic(Characteristic.Manufacturer, "Cambit")
+      .setCharacteristic(Characteristic.Manufacturer, "Custom")
       .setCharacteristic(Characteristic.Model, "Yamaha MC")
-      .setCharacteristic(Characteristic.SerialNumber, "6710160330");
- 
-    let switchService = new Service.Switch("Receiver");
+      .setCharacteristic(Characteristic.SerialNumber, this.name);
+
+    let switchService = new Service.Switch(this.name);
     switchService
       .getCharacteristic(Characteristic.On)
       .on('get', this.getSwitchOnCharacteristic.bind(this))
       .on('set', this.setSwitchOnCharacteristic.bind(this));
 
-    let speakerService = new Service.Speaker("Receiver");
+    let speakerService = new Service.Speaker(this.name);
     speakerService
       .getCharacteristic(Characteristic.Mute)
       .on('get', this.getSpeakerMutedCharacteristic.bind(this))
